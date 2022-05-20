@@ -194,14 +194,6 @@ inline TMatrix<A> TMatrix<A>::operator=(const TMatrix<A>& p)
   return *this;
 }
 
-//template<class A>
-//inline TMatrix<A> TMatrix<A>::MultVect(const TVector<A>& p1, const TVector<A>& p2)
-//{
-//  TMatrix<A> M(p1.GetLen(), p2.GetLen());
-//  *this = M;
-//  return *this;
-//}
-
 template<class A>
 ostream& operator <<(ostream& ostr, TMatrix<A>& p)
 {
