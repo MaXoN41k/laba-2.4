@@ -62,7 +62,7 @@ inline TVector<T>::TVector(int length,T* mas)
 { 
   if (length <= 0)
   {
-    throw out_of_range("мне плохо очень");
+    throw out_of_range("Г¬Г­ГҐ ГЇГ«Г®ГµГ® Г®Г·ГҐГ­Гј");
   }
   len = length;
   tran = false;
@@ -110,7 +110,7 @@ inline T& TVector<T>::operator[](int i)
   }
   else
   {
-    throw out_of_range("мне плохо");
+    throw out_of_range("Г¬Г­ГҐ ГЇГ«Г®ГµГ®");
   }
 }
 
