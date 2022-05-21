@@ -226,3 +226,4 @@ istream& operator >>(istream& istr, TMatrix<A>& p)
   p = res;
   return istr;
 }
+
