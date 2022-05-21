@@ -64,7 +64,7 @@ inline TVector<T>::TVector(int length,T* mas)
 { 
   if (length <= 0)
   {
-    throw out_of_range("ìíå ïëîõî î÷åíü");
+    throw out_of_range("Ã¬Ã­Ã¥ Ã¯Ã«Ã®ÃµÃ® Ã®Ã·Ã¥Ã­Ã¼");
   }
   len = length;
   tran = false;
