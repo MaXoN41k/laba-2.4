@@ -7,7 +7,7 @@ class TMatrix: public TVector<TVector<A>>
 protected:
   int len2;
 public:
-  TMatrix(int numrow, int numcol);
+  TMatrix(int numrow, int numcol, A ch=0);
   TMatrix();
 
   int GetLen2();
@@ -23,8 +23,9 @@ public:
   TMatrix<A> operator = (const TMatrix<A>& p);
 };
 
+//Конструктор инициализатор, принимающий на вход количество строк и столбцов в матрице
 template<class A>
-inline TMatrix<A>::TMatrix(int numrow, int numcol) : TVector<TVector<A>> ::TVector(numrow)
+inline TMatrix<A>::TMatrix(int numrow, int numcol, A ch=0) : TVector<TVector<A>> ::TVector(numrow)
 {
   len2 = numcol;
   for (int i = 0; i < numrow; i++)
@@ -33,22 +34,27 @@ inline TMatrix<A>::TMatrix(int numrow, int numcol) : TVector<TVector<A>> ::TVect
     data[i] = a;
     for (int j = 0; j < numcol; j++)
     {
-      data[i][j] = 0;
+      data[i][j] = ch;
     }
   }
 }
 
+
+
+//Конструктор по умолчанию, создающий матрицу 1 на 1 и заполняющий её нулём
 template<class A>
 inline TMatrix<A>::TMatrix():TMatrix<A> (1,1)
 {
 }
 
+//Метод, возвращающий количество столбцов в матрице
 template<class A>
 inline int TMatrix<A>::GetLen2()
 {
   return len2;
 }
 
+//Метод, выполняющий векторное умножение, в результате которого получается матрица
 template<class A>
 inline void TMatrix<A>::MultVect(TVector<A>& p1, const TVector<A>& p2)
 {
@@ -68,6 +74,7 @@ inline void TMatrix<A>::MultVect(TVector<A>& p1, const TVector<A>& p2)
   *this = M1*M2;
 }
 
+//Метод, выполняющий матрично векторные умножения
 template<class A>
 inline void TMatrix<A>::MultVectMatrix(TVector<A>& p, TMatrix<A>& m)
 {
@@ -96,6 +103,7 @@ inline void TMatrix<A>::MultVectMatrix(TVector<A>& p, TMatrix<A>& m)
   }
 }
 
+//Метод, ищущий количество вхождений заданого элемента в матрицу
 template<class A>
 inline int TMatrix<A>::CountIncludeMatrix(A ch)
 {
@@ -113,12 +121,14 @@ inline int TMatrix<A>::CountIncludeMatrix(A ch)
   return count;
 }
 
+//Перегрузка оператора ==, принимающая на вход ссылку на матрицу
 template<class A>
 inline bool TMatrix<A>::operator==(const TMatrix<A>& p)
 {
   return TVector<TVector<A>>::operator==(p);
 }
 
+//Перегрузка оператора +, принимающая на вход ссылку на матрицу
 template<class A>
 inline TMatrix<A> TMatrix<A>::operator+(const TMatrix<A>& p)
 {
@@ -141,6 +151,7 @@ inline TMatrix<A> TMatrix<A>::operator+(const TMatrix<A>& p)
   
 }
 
+//Перегрузка оператора -, принимающая на вход ссылку на матрицу
 template<class A>
 inline TMatrix<A> TMatrix<A>::operator-(const TMatrix<A>& p)
 {
@@ -163,6 +174,7 @@ inline TMatrix<A> TMatrix<A>::operator-(const TMatrix<A>& p)
 
 }
 
+//Перегрузка оператора *, принимающая на вход ссылку на матрицу
 template<class A>
 inline TMatrix<A> TMatrix<A>::operator*(const TMatrix<A>& p)
 {
@@ -187,6 +199,8 @@ inline TMatrix<A> TMatrix<A>::operator*(const TMatrix<A>& p)
     throw out_of_range("different sizes*");
   }
 }
+
+//Перегрузка оператора =, принимающая на вход ссылку на матрицу
 template<class A>
 inline TMatrix<A> TMatrix<A>::operator=(const TMatrix<A>& p)
 {
@@ -194,6 +208,7 @@ inline TMatrix<A> TMatrix<A>::operator=(const TMatrix<A>& p)
   return *this;
 }
 
+//перегрузка оператора <<, принимающая на вход поток и ссылку на матрицу
 template<class A>
 ostream& operator <<(ostream& ostr, TMatrix<A>& p)
 {
@@ -209,6 +224,7 @@ ostream& operator <<(ostream& ostr, TMatrix<A>& p)
   return ostr;
 }
 
+//перегрузка оператора >>, принимающая на вход поток и ссылку на матрицу
 template<class A>
 istream& operator >>(istream& istr, TMatrix<A>& p)
 {
@@ -226,4 +242,3 @@ istream& operator >>(istream& istr, TMatrix<A>& p)
   p = res;
   return istr;
 }
-
