@@ -32,7 +32,7 @@ public:
   TVector<T> operator * (const TVector<T>& p);
 };
 
-//Конструктор инициализатор, принимающий на вход длину и символ, которым необходимо заполнить вектор
+//ГЉГ®Г­Г±ГІГ°ГіГЄГІГ®Г° ГЁГ­ГЁГ¶ГЁГ Г«ГЁГ§Г ГІГ®Г°, ГЇГ°ГЁГ­ГЁГ¬Г ГѕГ№ГЁГ© Г­Г  ГўГµГ®Г¤ Г¤Г«ГЁГ­Гі ГЁ Г±ГЁГ¬ГўГ®Г«, ГЄГ®ГІГ®Г°Г»Г¬ Г­ГҐГ®ГЎГµГ®Г¤ГЁГ¬Г® Г§Г ГЇГ®Г«Г­ГЁГІГј ГўГҐГЄГІГ®Г°
 template<class T>
 inline TVector<T>::TVector(int n, T v)
 {
@@ -50,7 +50,7 @@ inline TVector<T>::TVector(int n, T v)
   }
 }
 
-//Конструктор копирования, принимающий на вход ссылку на вектор
+//ГЉГ®Г­Г±ГІГ°ГіГЄГІГ®Г° ГЄГ®ГЇГЁГ°Г®ГўГ Г­ГЁГї, ГЇГ°ГЁГ­ГЁГ¬Г ГѕГ№ГЁГ© Г­Г  ГўГµГ®Г¤ Г±Г±Г»Г«ГЄГі Г­Г  ГўГҐГЄГІГ®Г°
 template<class T>
 inline TVector<T>::TVector(const TVector<T>& p)
 {
@@ -61,7 +61,7 @@ inline TVector<T>::TVector(const TVector<T>& p)
     data[i] = p.data[i];
 }
 
-//Конструктор, собирающий вектор по длинне и переданному массиву шаблонного типа
+//ГЉГ®Г­Г±ГІГ°ГіГЄГІГ®Г°, Г±Г®ГЎГЁГ°Г ГѕГ№ГЁГ© ГўГҐГЄГІГ®Г° ГЇГ® Г¤Г«ГЁГ­Г­ГҐ ГЁ ГЇГҐГ°ГҐГ¤Г Г­Г­Г®Г¬Гі Г¬Г Г±Г±ГЁГўГі ГёГ ГЎГ«Г®Г­Г­Г®ГЈГ® ГІГЁГЇГ 
 template<class T>
 inline TVector<T>::TVector(int length,T* mas)
 { 
@@ -79,7 +79,7 @@ inline TVector<T>::TVector(int length,T* mas)
   }
 }
 
-//Деструктор, очищающий выделенную память
+//Г„ГҐГ±ГІГ°ГіГЄГІГ®Г°, Г®Г·ГЁГ№Г ГѕГ№ГЁГ© ГўГ»Г¤ГҐГ«ГҐГ­Г­ГіГѕ ГЇГ Г¬ГїГІГј
 template<class T>
 inline TVector<T>::~TVector()
 {
@@ -90,28 +90,28 @@ inline TVector<T>::~TVector()
   }
 }
 
-//Метод, возвращающий длину вектора
+//ГЊГҐГІГ®Г¤, ГўГ®Г§ГўГ°Г Г№Г ГѕГ№ГЁГ© Г¤Г«ГЁГ­Гі ГўГҐГЄГІГ®Г°Г 
 template<class T>
 inline int TVector<T>::GetLen() const
 {
   return len;
 }
 
-//Метод, изменяющий значение транспонированности вектора
+//ГЊГҐГІГ®Г¤, ГЁГ§Г¬ГҐГ­ГїГѕГ№ГЁГ© Г§Г­Г Г·ГҐГ­ГЁГҐ ГІГ°Г Г­Г±ГЇГ®Г­ГЁГ°Г®ГўГ Г­Г­Г®Г±ГІГЁ ГўГҐГЄГІГ®Г°Г 
 template<class T>
 inline void TVector<T>::SetTran(bool t)
 {
   tran = t;
 }
 
-//Метод, возвращяющий значение транспонированности вектора
+//ГЊГҐГІГ®Г¤, ГўГ®Г§ГўГ°Г Г№ГїГѕГ№ГЁГ© Г§Г­Г Г·ГҐГ­ГЁГҐ ГІГ°Г Г­Г±ГЇГ®Г­ГЁГ°Г®ГўГ Г­Г­Г®Г±ГІГЁ ГўГҐГЄГІГ®Г°Г 
 template<class T>
 inline bool TVector<T>::GetTran() const
 {
   return tran;
 }
 
-//Метод для подсчёта количества вхождения элемента в вектор
+//ГЊГҐГІГ®Г¤ Г¤Г«Гї ГЇГ®Г¤Г±Г·ВёГІГ  ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ  ГўГµГ®Г¦Г¤ГҐГ­ГЁГї ГЅГ«ГҐГ¬ГҐГ­ГІГ  Гў ГўГҐГЄГІГ®Г°
 template<class T>
 inline int TVector<T>::CountIncludeVector(T ch)
 {
@@ -126,7 +126,7 @@ inline int TVector<T>::CountIncludeVector(T ch)
   return count;
 }
 
-//Перегрузка оператора [], принимающая на вход номер ячейки вектора
+//ГЏГҐГ°ГҐГЈГ°ГіГ§ГЄГ  Г®ГЇГҐГ°Г ГІГ®Г°Г  [], ГЇГ°ГЁГ­ГЁГ¬Г ГѕГ№Г Гї Г­Г  ГўГµГ®Г¤ Г­Г®Г¬ГҐГ° ГїГ·ГҐГ©ГЄГЁ ГўГҐГЄГІГ®Г°Г 
 template<class T>
 inline T& TVector<T>::operator[](int i)
 {
@@ -142,7 +142,7 @@ inline T& TVector<T>::operator[](int i)
   }
 }
 
-//Перегрузка оператора =, принимающая на вход ссылку на вектор
+//ГЏГҐГ°ГҐГЈГ°ГіГ§ГЄГ  Г®ГЇГҐГ°Г ГІГ®Г°Г  =, ГЇГ°ГЁГ­ГЁГ¬Г ГѕГ№Г Гї Г­Г  ГўГµГ®Г¤ Г±Г±Г»Г«ГЄГі Г­Г  ГўГҐГЄГІГ®Г°
 template<class T>
 inline TVector<T>& TVector<T>::operator=(const TVector<T>& p)
 {
@@ -159,7 +159,7 @@ inline TVector<T>& TVector<T>::operator=(const TVector<T>& p)
   return *this;
 }
 
-//Перегрузка оператора +, принимающая на вход ссылку на вектор
+//ГЏГҐГ°ГҐГЈГ°ГіГ§ГЄГ  Г®ГЇГҐГ°Г ГІГ®Г°Г  +, ГЇГ°ГЁГ­ГЁГ¬Г ГѕГ№Г Гї Г­Г  ГўГµГ®Г¤ Г±Г±Г»Г«ГЄГі Г­Г  ГўГҐГЄГІГ®Г°
 template<class T>
 inline TVector<T> TVector<T>::operator+(const TVector<T>& p)
 {
@@ -173,7 +173,7 @@ inline TVector<T> TVector<T>::operator+(const TVector<T>& p)
   return res;
 }
 
-//Перегрузка оператора -, принимающая на вход ссылку на вектор
+//ГЏГҐГ°ГҐГЈГ°ГіГ§ГЄГ  Г®ГЇГҐГ°Г ГІГ®Г°Г  -, ГЇГ°ГЁГ­ГЁГ¬Г ГѕГ№Г Гї Г­Г  ГўГµГ®Г¤ Г±Г±Г»Г«ГЄГі Г­Г  ГўГҐГЄГІГ®Г°
 template<class T>
 inline TVector<T> TVector<T>::operator-(const TVector<T>& p)
 {
@@ -188,7 +188,7 @@ inline TVector<T> TVector<T>::operator-(const TVector<T>& p)
   return res;
 }
 
-//Перегрузка оператора /, принимающая на вход ссылку на вектор
+//ГЏГҐГ°ГҐГЈГ°ГіГ§ГЄГ  Г®ГЇГҐГ°Г ГІГ®Г°Г  /, ГЇГ°ГЁГ­ГЁГ¬Г ГѕГ№Г Гї Г­Г  ГўГµГ®Г¤ Г±Г±Г»Г«ГЄГі Г­Г  ГўГҐГЄГІГ®Г°
 template <class T>
 inline TVector<T> TVector<T>::operator /(const TVector<T>& p)
 {
@@ -203,7 +203,7 @@ inline TVector<T> TVector<T>::operator /(const TVector<T>& p)
   return res;
 }
 
-//Перегрузка оператора *, принимающая на вход шаблонный скаляр
+//ГЏГҐГ°ГҐГЈГ°ГіГ§ГЄГ  Г®ГЇГҐГ°Г ГІГ®Г°Г  *, ГЇГ°ГЁГ­ГЁГ¬Г ГѕГ№Г Гї Г­Г  ГўГµГ®Г¤ ГёГ ГЎГ«Г®Г­Г­Г»Г© Г±ГЄГ Г«ГїГ°
 template<class T>
 inline TVector<T> TVector<T>::operator*(const T n)
 {
@@ -215,7 +215,7 @@ inline TVector<T> TVector<T>::operator*(const T n)
   return res;
 }
 
-//Перегрузка оператора /, принимающая на вход шаблонный скаляр
+//ГЏГҐГ°ГҐГЈГ°ГіГ§ГЄГ  Г®ГЇГҐГ°Г ГІГ®Г°Г  /, ГЇГ°ГЁГ­ГЁГ¬Г ГѕГ№Г Гї Г­Г  ГўГµГ®Г¤ ГёГ ГЎГ«Г®Г­Г­Г»Г© Г±ГЄГ Г«ГїГ°
 template<class T>
 inline TVector<T> TVector<T>::operator/(const T n)
 {
@@ -227,7 +227,7 @@ inline TVector<T> TVector<T>::operator/(const T n)
   return res;
 }
 
-//Перегрузка оператора ==, принимающая на вход ссылку на вектор
+//ГЏГҐГ°ГҐГЈГ°ГіГ§ГЄГ  Г®ГЇГҐГ°Г ГІГ®Г°Г  ==, ГЇГ°ГЁГ­ГЁГ¬Г ГѕГ№Г Гї Г­Г  ГўГµГ®Г¤ Г±Г±Г»Г«ГЄГі Г­Г  ГўГҐГЄГІГ®Г°
 template<class T>
 inline bool TVector<T>::operator==(const TVector<T>& p)
 {
@@ -239,7 +239,7 @@ inline bool TVector<T>::operator==(const TVector<T>& p)
   return true;
 }
 
-//Перегрузка оператора *, принимающая на вход ссылку на вектор
+//ГЏГҐГ°ГҐГЈГ°ГіГ§ГЄГ  Г®ГЇГҐГ°Г ГІГ®Г°Г  *, ГЇГ°ГЁГ­ГЁГ¬Г ГѕГ№Г Гї Г­Г  ГўГµГ®Г¤ Г±Г±Г»Г«ГЄГі Г­Г  ГўГҐГЄГІГ®Г°
 template<class T>
 inline TVector<T> TVector<T>::operator*(const TVector<T>& p)
 {
@@ -259,7 +259,7 @@ inline TVector<T> TVector<T>::operator*(const TVector<T>& p)
   }
 }
 
-//Перегрузка оператора <<, принимающая на вход поток и ссылку на вектор
+//ГЏГҐГ°ГҐГЈГ°ГіГ§ГЄГ  Г®ГЇГҐГ°Г ГІГ®Г°Г  <<, ГЇГ°ГЁГ­ГЁГ¬Г ГѕГ№Г Гї Г­Г  ГўГµГ®Г¤ ГЇГ®ГІГ®ГЄ ГЁ Г±Г±Г»Г«ГЄГі Г­Г  ГўГҐГЄГІГ®Г°
 template<class T>
 ostream& operator<<(ostream& ostr, TVector<T>& p)
 {
@@ -268,7 +268,7 @@ ostream& operator<<(ostream& ostr, TVector<T>& p)
   return ostr;
 }
 
-//Перегрузка оператора >>, принимающая на вход поток и ссылку на вектор
+//ГЏГҐГ°ГҐГЈГ°ГіГ§ГЄГ  Г®ГЇГҐГ°Г ГІГ®Г°Г  >>, ГЇГ°ГЁГ­ГЁГ¬Г ГѕГ№Г Гї Г­Г  ГўГµГ®Г¤ ГЇГ®ГІГ®ГЄ ГЁ Г±Г±Г»Г«ГЄГі Г­Г  ГўГҐГЄГІГ®Г°
 template<class T>
 istream& operator>>(istream& istr, TVector<T>& p)
 {
