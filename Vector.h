@@ -32,6 +32,7 @@ public:
   TVector<T> operator * (const TVector<T>& p);
 };
 
+//Êîíñòðóêòîð èíèöèàëèçàòîð, ïðèíèìàþùèé íà âõîä äëèíó è ñèìâîë, êîòîðûì íåîáõîäèìî çàïîëíèòü âåêòîð
 template<class T>
 inline TVector<T>::TVector(int n, T v)
 {
@@ -49,6 +50,7 @@ inline TVector<T>::TVector(int n, T v)
   }
 }
 
+//Êîíñòðóêòîð êîïèðîâàíèÿ, ïðèíèìàþùèé íà âõîä ññûëêó íà âåêòîð
 template<class T>
 inline TVector<T>::TVector(const TVector<T>& p)
 {
@@ -59,12 +61,13 @@ inline TVector<T>::TVector(const TVector<T>& p)
     data[i] = p.data[i];
 }
 
+//Êîíñòðóêòîð, ñîáèðàþùèé âåêòîð ïî äëèííå è ïåðåäàííîìó ìàññèâó øàáëîííîãî òèïà
 template<class T>
 inline TVector<T>::TVector(int length,T* mas)
 { 
   if (length <= 0)
   {
-    throw out_of_range("ìíå ïëîõî î÷åíü");
+    throw out_of_range("out of range");
   }
   len = length;
   tran = false;
@@ -74,13 +77,9 @@ inline TVector<T>::TVector(int length,T* mas)
     for (int i = 0; i < len; i++)
       data[i] = mas[i];
   }
-  //else
-  //{
-  //  for (int i = 0; i < len; i++)
-  //    data[i] = 0;//todo
-  //}
 }
 
+//Äåñòðóêòîð, î÷èùàþùèé âûäåëåííóþ ïàìÿòü
 template<class T>
 inline TVector<T>::~TVector()
 {
@@ -91,24 +90,28 @@ inline TVector<T>::~TVector()
   }
 }
 
+//Ìåòîä, âîçâðàùàþùèé äëèíó âåêòîðà
 template<class T>
 inline int TVector<T>::GetLen() const
 {
   return len;
 }
 
+//Ìåòîä, èçìåíÿþùèé çíà÷åíèå òðàíñïîíèðîâàííîñòè âåêòîðà
 template<class T>
 inline void TVector<T>::SetTran(bool t)
 {
   tran = t;
 }
 
+//Ìåòîä, âîçâðàùÿþùèé çíà÷åíèå òðàíñïîíèðîâàííîñòè âåêòîðà
 template<class T>
 inline bool TVector<T>::GetTran() const
 {
   return tran;
 }
 
+//Ìåòîä äëÿ ïîäñ÷¸òà êîëè÷åñòâà âõîæäåíèÿ ýëåìåíòà â âåêòîð
 template<class T>
 inline int TVector<T>::CountIncludeVector(T ch)
 {
@@ -123,6 +126,7 @@ inline int TVector<T>::CountIncludeVector(T ch)
   return count;
 }
 
+//Ïåðåãðóçêà îïåðàòîðà [], ïðèíèìàþùàÿ íà âõîä íîìåð ÿ÷åéêè âåêòîðà
 template<class T>
 inline T& TVector<T>::operator[](int i)
 {
@@ -138,6 +142,7 @@ inline T& TVector<T>::operator[](int i)
   }
 }
 
+//Ïåðåãðóçêà îïåðàòîðà =, ïðèíèìàþùàÿ íà âõîä ññûëêó íà âåêòîð
 template<class T>
 inline TVector<T>& TVector<T>::operator=(const TVector<T>& p)
 {
@@ -154,6 +159,7 @@ inline TVector<T>& TVector<T>::operator=(const TVector<T>& p)
   return *this;
 }
 
+//Ïåðåãðóçêà îïåðàòîðà +, ïðèíèìàþùàÿ íà âõîä ññûëêó íà âåêòîð
 template<class T>
 inline TVector<T> TVector<T>::operator+(const TVector<T>& p)
 {
@@ -167,6 +173,7 @@ inline TVector<T> TVector<T>::operator+(const TVector<T>& p)
   return res;
 }
 
+//Ïåðåãðóçêà îïåðàòîðà -, ïðèíèìàþùàÿ íà âõîä ññûëêó íà âåêòîð
 template<class T>
 inline TVector<T> TVector<T>::operator-(const TVector<T>& p)
 {
@@ -181,6 +188,7 @@ inline TVector<T> TVector<T>::operator-(const TVector<T>& p)
   return res;
 }
 
+//Ïåðåãðóçêà îïåðàòîðà /, ïðèíèìàþùàÿ íà âõîä ññûëêó íà âåêòîð
 template <class T>
 inline TVector<T> TVector<T>::operator /(const TVector<T>& p)
 {
@@ -195,6 +203,7 @@ inline TVector<T> TVector<T>::operator /(const TVector<T>& p)
   return res;
 }
 
+//Ïåðåãðóçêà îïåðàòîðà *, ïðèíèìàþùàÿ íà âõîä øàáëîííûé ñêàëÿð
 template<class T>
 inline TVector<T> TVector<T>::operator*(const T n)
 {
@@ -206,6 +215,7 @@ inline TVector<T> TVector<T>::operator*(const T n)
   return res;
 }
 
+//Ïåðåãðóçêà îïåðàòîðà /, ïðèíèìàþùàÿ íà âõîä øàáëîííûé ñêàëÿð
 template<class T>
 inline TVector<T> TVector<T>::operator/(const T n)
 {
@@ -217,6 +227,7 @@ inline TVector<T> TVector<T>::operator/(const T n)
   return res;
 }
 
+//Ïåðåãðóçêà îïåðàòîðà ==, ïðèíèìàþùàÿ íà âõîä ññûëêó íà âåêòîð
 template<class T>
 inline bool TVector<T>::operator==(const TVector<T>& p)
 {
@@ -228,29 +239,27 @@ inline bool TVector<T>::operator==(const TVector<T>& p)
   return true;
 }
 
+//Ïåðåãðóçêà îïåðàòîðà *, ïðèíèìàþùàÿ íà âõîä ññûëêó íà âåêòîð
 template<class T>
 inline TVector<T> TVector<T>::operator*(const TVector<T>& p)
 {
-  if (len == p.len && tran == p.tran && tran == true)//proizvedenie adomara
+  if (len == p.len && tran == p.tran && tran == true)
   {
     TVector<T> res(len);
     for (int i = 0; i < len; i++)
       res[i] = data[i] * p.data[i];
     return res;
   }
-  if (len == p.len && p.tran == true && tran == false)//skalar
+  if (len == p.len && p.tran == true && tran == false)
   {
-    T res = 0;
+    TVector<T> res(1,0);
     for (int i = 0; i < len; i++)
-      res[i] = res[i] + (data[i] * p.data[i]);
+      res[0] = res[0] + (data[i] * p.data[i]);
     return res;
-  }
-  if (len == p.len && p.tran == false && tran == true)
-  {
-    TVector<TVector<T>>
   }
 }
 
+//Ïåðåãðóçêà îïåðàòîðà <<, ïðèíèìàþùàÿ íà âõîä ïîòîê è ññûëêó íà âåêòîð
 template<class T>
 ostream& operator<<(ostream& ostr, TVector<T>& p)
 {
@@ -259,6 +268,7 @@ ostream& operator<<(ostream& ostr, TVector<T>& p)
   return ostr;
 }
 
+//Ïåðåãðóçêà îïåðàòîðà >>, ïðèíèìàþùàÿ íà âõîä ïîòîê è ññûëêó íà âåêòîð
 template<class T>
 istream& operator>>(istream& istr, TVector<T>& p)
 {
